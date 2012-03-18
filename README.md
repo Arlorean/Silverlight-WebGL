@@ -4,6 +4,8 @@
 Sliverlight.WebGL is a C#/.NET wrapper for in-browser access to [WebGL](http://get.webgl.org/)
 functionality using [Silverlight 5](http://www.microsoft.com/silverlight/).
 
+<img src="https://raw.github.com/Arlorean/Silverlight-WebGL/master/Website/Lesson03-Windows-IE9.PNG"></img>
+
 Features
 --------
 
