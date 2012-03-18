@@ -26,7 +26,7 @@ How it works
 
 The HTML5 canvas has a WebGL context on recent releases of Firefox, Chrome and Safari, and
 it can be faked on Internet Explorer with a plugin.
-The [Silverlight HTML Bridge](http://msdn.microsoft.com/en-us/library/cc645076(v=vs.95).aspx)
+The [Silverlight HTML Bridge](http://tinyurl.com/7rr4m3o)
 allows typesafe wrappers to be created around this JavaScript API so your application/game
 loop can be written and compiled in C#/VB.NET with the 3D being fully hardware accelerated  
 by the WebGL support in the browser.
