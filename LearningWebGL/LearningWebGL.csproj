@@ -89,7 +89,6 @@
     <None Include="Properties\AppManifest.xml" />
     <Resource Include="iPhoneH.png" />
     <Content Include="Lesson14.html" />
-    <None Include="README.md" />
     <Content Include="Teapot.json" />
   </ItemGroup>
   <ItemGroup>
