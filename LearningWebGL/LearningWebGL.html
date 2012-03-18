@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebGL Lesson 1</title>
+    <link rel="stylesheet" type="text/css" href="LearningWebGL.css"/>
+    <script src="WebGLHelper.js" type="text/javascript"></script>
+    <script src="Silverlight.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function onWebGLCreated(canvas, canvasId) {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function onSilverlightLoaded(sender, args) {
+            // Workaround until window.requestAnimationFrame becomes standard
+            window.requestAnimFrame =
+                window.requestAnimationFrame ||
+                window.mozRequestAnimationFrame ||   
+                window.oRequestAnimationFrame ||
+                window.msRequestAnimationFrame ||
+                (window.webkitRequestAnimationFrame
+                    // webkitRequestAnimationFrame can't be passed a Silverlight method directly
+                    ? function (callback) { window.webkitRequestAnimationFrame(function () { callback(); }) }
+                    : function (callback) { window.setTimeout(callback, 1000 / 60); });
+
+            var LearningWebGL = sender.getHost();
+            var lesson = LearningWebGL.Content.Lesson;
+            lesson.webGLStart("WebGLCanvas"); 
+        }  
+    </script>
+</head>
+<body>
+    <!-- Platform Dependant WebGL control -->
+    <div id="WebGLCanvasContainer">
+        <script id="WebGLCanvasCreationScript" type="text/javascript">
+            WebGLHelper.CreateGLCanvasInline('WebGLCanvas', onWebGLCreated, null);
+        </script>
+    </div>
+
+    <!-- Silverlight Game -->
+    <div id="SilverlightContainer">
+        <object id="LearningWebGL" width="1" height="1" 
+            data="data:application/x-silverlight-2," 
+            type="application/x-silverlight-2" >
+            <param name="source" value="Bin/Debug/LearningWebGL.xap"/>
+            <param name="onError" value="onSilverlightError"/>
+            <param name="onLoad" value="onSilverlightLoaded"/>
+            <param name="background" value="black"/>
+        </object>
+    </div>
+</body>
+</html>
+

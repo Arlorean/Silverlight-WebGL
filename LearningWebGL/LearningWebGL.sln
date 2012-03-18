@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Web Developer Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningWebGL", "LearningWebGL.csproj", "{769DFB04-6464-491B-AF5E-A58CDC92B495}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silverlight.WebGL", "..\Silverlight.WebGL\Silverlight.WebGL.csproj", "{0CE3E5D4-D5AD-409E-AA4E-DEDB16991AA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{769DFB04-6464-491B-AF5E-A58CDC92B495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{769DFB04-6464-491B-AF5E-A58CDC92B495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{769DFB04-6464-491B-AF5E-A58CDC92B495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{769DFB04-6464-491B-AF5E-A58CDC92B495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CE3E5D4-D5AD-409E-AA4E-DEDB16991AA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CE3E5D4-D5AD-409E-AA4E-DEDB16991AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CE3E5D4-D5AD-409E-AA4E-DEDB16991AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CE3E5D4-D5AD-409E-AA4E-DEDB16991AA6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
