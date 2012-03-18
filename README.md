@@ -35,6 +35,23 @@ Here's an example WebGL called from the C# wrapper:
 	    Invoke("clearColor", red, green, blue, alpha);
     }
 
+Getting Started
+---------------
+
+* Install the Runtime and Developer Requirements
+* Download the latest source code from
+[Silverlight-WebGL](https://github.com/Arlorean/Silverlight-WebGL) from GitHub. 
+On Windows I used TortoiseGit following 
+[these instuctions](http://www.sparkfun.com/tutorials/165).
+* Open up the solution file LearningWebGL/LearningWebGL.sln in Visual Web Developer 2010 Express (it's free).
+* Press **Start Debugging** (F5).
+* Edit **App.xaml.cs** and change **Lesson03** in this method to select a different lesson to view:
+
+        private void Application_Startup(object sender, StartupEventArgs e) {
+            this.RootVisual = new Canvas();
+            new Lesson03() { Id = "Lesson" };
+        }
+
 Runtime Requirements 
 --------------------
 
