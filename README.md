@@ -56,11 +56,20 @@ Licenses
 
 * The source code for Silverlight.WebGL is released under the
 [MIT License](http://www.opensource.org/licenses/MIT).
-* The source code for the LearningWebGL samples is ported from the origal JavaScript WebGL
+* The source code for the LearningWebGL samples is ported from the original JavaScript WebGL
 samples on the [Learning WebGL](http://learningwebgl.com/blog/?page_id=1217) website which is largely
 based on the [Nehe OpenGL Tutorials](http://nehe.gamedev.net/) samples.
 * The source code for GlMatrix is ported from the original JavaScript
 [gl-matrix.js](https://github.com/toji/gl-matrix) library by Brandon Jones.
 * The iPhone graphic used in the sample pages is taken from 
 [openclipart.org](http://openclipart.org/people/BenBois/BenBois_iPhone_SVG.svg) by Ben Bois.
+* The Silverlight.js file is the standard script from Microsoft.
+* The WebGLHelper.js file is from [IEWebGL](http://iewebgl.com/) to allow loading of their plugin for internet explorer, or the built-in WebGL if it's available.
 
+TODO:
+-----
+
+* Fill in missing implementations of WebGL methods.
+* Port the remaining samples from [Learning WebGL](http://learningwebgl.com/blog/?page_id=1217).
+* Test on Mac OSX in Safari, Chrome and Firefox and add browser matrix to this README.md file.
+* Test via a http:// URL instead of just local file:// URLs.
