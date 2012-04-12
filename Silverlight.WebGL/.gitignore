@@ -2,3 +2,5 @@
 *.suo
 Bin
 obj
+
+*.user

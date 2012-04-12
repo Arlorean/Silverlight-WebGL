@@ -55,7 +55,7 @@ using WebGLFramebuffer = System.Windows.Browser.ScriptObject;
 using WebGLProgram = System.Windows.Browser.ScriptObject;
 using WebGLRenderbuffer = System.Windows.Browser.ScriptObject;
 using WebGLShader = System.Windows.Browser.ScriptObject;
-//using WebGLTexture = System.Windows.Browser.ScriptObject;
+using WebGLTexture = System.Windows.Browser.ScriptObject;
 using WebGLUniformLocation = System.Windows.Browser.ScriptObject;
 using WebGLContextAttributes = System.Windows.Browser.ScriptObject;
 #endregion
@@ -157,7 +157,7 @@ namespace Silverlight.Html.WebGL
             // void bindFramebuffer(GLenum target, WebGLFramebuffer framebuffer);
             // void bindRenderbuffer(GLenum target, WebGLRenderbuffer renderbuffer);
         public void bindTexture(GLenum target, WebGLTexture texture) {
-            Invoke("bindTexture", target, texture != null ? texture.Object : null);
+            Invoke("bindTexture", target, texture != null ? texture : null);
         }
             // void blendColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha);
             // void blendEquation(GLenum mode);
@@ -223,8 +223,7 @@ namespace Silverlight.Html.WebGL
             return (WebGLShader) Invoke("createShader", type);
         }
         public WebGLTexture createTexture() {
-            var texture = Invoke("createTexture", null);
-            return new WebGLTexture(texture as ScriptObject);
+            return (WebGLTexture) Invoke("createTexture", null);
         }
         public void cullFace(GLenum mode) {
             Invoke("cullFace", mode);
@@ -420,19 +419,17 @@ namespace Silverlight.Html.WebGL
             Invoke("stencilFunc", face, fail, zfail, zpass);
         }
 
-            // void texImage2D(GLenum target, GLint level, GLenum internalformat, 
-            //    GLsizei width, GLsizei height, GLint border, GLenum format, 
-            //    GLenum type, ArrayBufferView pixels);
+        public void texImage2D(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, ArrayBufferView pixels) {
+            Invoke("texImage2D", target, level, internalformat, width, height, border, format, type, pixels.Object);        
+        }
             // void texImage2D(GLenum target, GLint level, GLenum internalformat,
             //    GLenum format, GLenum type, ImageData pixels);
         public void texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, Image image) {
             Invoke("texImage2D", target, level, internalformat, format, type, image.Object);
         }
-            // void texImage2D(GLenum target, GLint level, GLenum internalformat,
-            //    GLenum format, GLenum type, HTMLCanvasElement canvas) raises (DOMException);
-            // void texImage2D(GLenum target, GLint level, GLenum internalformat,
-            //    GLenum format, GLenum type, HTMLVideoElement video) raises (DOMException);
-
+        void texImage2D(GLenum target, GLint level, GLenum internalformat, GLenum format, GLenum type, HtmlElement canvas /*or video*/) {
+            Invoke("texImage2D", target, level, internalformat, format, type, canvas);
+        }
         public void texParameterf(GLenum target, GLenum pname, GLfloat param) {
             Invoke("texParameterf", target, pname, param);
         }
@@ -488,10 +485,13 @@ namespace Silverlight.Html.WebGL
             // void uniform4iv(WebGLUniformLocation location, Int32Array v);
             // void uniform4iv(WebGLUniformLocation location, sequence<long> v);
 
-            // void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, 
-            //          FloatArray value);
-            // void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, 
-            //          sequence<float> value);
+        public void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, Float32Array value) {
+            Invoke("uniformMatrix2fv", location, transpose, value.Object);
+        }
+        public void uniformMatrix2fv(WebGLUniformLocation location, GLboolean transpose, GLfloat[] value) {
+            // FIXME: Passing float array as value into IE9 works but Firefox/Chrome gives an error
+            Invoke("uniformMatrix2fv", location, transpose, new Float32Array(value).Object);
+        }
         public void uniformMatrix3fv(WebGLUniformLocation location, GLboolean transpose, Float32Array value) {
             Invoke("uniformMatrix3fv", location, transpose, value.Object);
         }

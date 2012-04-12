@@ -46,7 +46,7 @@ namespace LearningWebGL
 
         private void Application_Startup(object sender, StartupEventArgs e) {
             this.RootVisual = new Canvas();
-            new Lesson03() { Id = "Lesson" };
+            new Lesson05() { Id = "Lesson" };
         }
 
         private void Application_Exit(object sender, EventArgs e) {

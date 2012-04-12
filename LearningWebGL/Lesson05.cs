@@ -25,7 +25,7 @@ using WebGLFramebuffer = System.Windows.Browser.ScriptObject;
 using WebGLProgram = System.Windows.Browser.ScriptObject;
 using WebGLRenderbuffer = System.Windows.Browser.ScriptObject;
 using WebGLShader = System.Windows.Browser.ScriptObject;
-//using WebGLTexture = System.Windows.Browser.ScriptObject;
+using WebGLTexture = System.Windows.Browser.ScriptObject;
 using WebGLUniformLocation = System.Windows.Browser.ScriptObject;
 using System.Collections.Generic;
 //using WebGLContextAttributes = System.Windows.Browser.ScriptObject;

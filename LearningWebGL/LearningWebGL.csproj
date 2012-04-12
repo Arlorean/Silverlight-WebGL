@@ -87,8 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
-    <Resource Include="iPhoneH.png" />
-    <Content Include="Lesson14.html" />
     <Content Include="Teapot.json" />
   </ItemGroup>
   <ItemGroup>
@@ -96,16 +94,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="iPhoneH.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="arroway.de_metal+structure+06_d100_flat.jpg" />
-    <Resource Include="earth.jpg" />
-    <Content Include="LearningWebGL.css" />
-    <Content Include="LearningWebGL.html" />
-    <Resource Include="nehe.gif" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Silverlight.WebGL\Silverlight.WebGL.csproj">

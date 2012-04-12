@@ -5,6 +5,28 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LearningWebGL", "LearningWe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Silverlight.WebGL", "..\Silverlight.WebGL\Silverlight.WebGL.csproj", "{0CE3E5D4-D5AD-409E-AA4E-DEDB16991AA6}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "LearningWebGL.Web", "..\LearningWebGL.Web\", "{6AB51DE4-E641-4177-9D66-5FDC8FFAA068}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/LearningWebGL.Web"
+		Debug.AspNetCompiler.PhysicalPath = "..\LearningWebGL.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\LearningWebGL.Web\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/LearningWebGL.Web"
+		Release.AspNetCompiler.PhysicalPath = "..\LearningWebGL.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\LearningWebGL.Web\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52866"
+		DefaultWebSiteLanguage = "Visual C#"
+		ProjOutputReferences = "{769DFB04-6464-491B-AF5E-A58CDC92B495}||false;"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +41,10 @@ Global
 		{0CE3E5D4-D5AD-409E-AA4E-DEDB16991AA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0CE3E5D4-D5AD-409E-AA4E-DEDB16991AA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0CE3E5D4-D5AD-409E-AA4E-DEDB16991AA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AB51DE4-E641-4177-9D66-5FDC8FFAA068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AB51DE4-E641-4177-9D66-5FDC8FFAA068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AB51DE4-E641-4177-9D66-5FDC8FFAA068}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AB51DE4-E641-4177-9D66-5FDC8FFAA068}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

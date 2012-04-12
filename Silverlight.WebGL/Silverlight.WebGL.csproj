@@ -56,13 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Image.cs" />
+    <Compile Include="Marshal.cs" />
     <Compile Include="WebGL\GL.cs" />
     <Compile Include="TypedArrays.cs" />
     <Compile Include="WebGL\WebGLContextAttributes.cs" />
-    <Compile Include="WebGL\WebGLObject.cs" />
     <Compile Include="WebGL\WebGLRenderingContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebGL\WebGLTexture.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions>

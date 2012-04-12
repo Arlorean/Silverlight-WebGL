@@ -32,6 +32,7 @@ using System.Net;
 using System.Windows;
 using System.Windows.Browser;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Silverlight.Html
 {
@@ -89,14 +90,17 @@ namespace Silverlight.Html
         }
 
         public static ArrayBufferView FromArray<T>(T[] array) where T : struct {
+            byte[] memory;
+  
             var elementType = typeof(T);
-            var elementSize = elementType.SizeOf();
-            var length = array.Length * elementSize;
-            var memory = new byte[length];
-            using (var bw = new BinaryWriter(new MemoryStream(memory))) {
-                foreach (var element in array) {
-                    elementType.WriteTo(bw, element);
-                }
+            if (elementType == typeof(byte)) {
+                memory = array as byte[];
+            }
+            else {
+                var elementSize = SafeMarshal.SizeOf(elementType);
+                var length = array.Length * elementSize;
+                memory = new byte[length];
+                Buffer.BlockCopy(array, 0, memory, 0, length);
             }
             return new Uint8Array(memory);
         }
@@ -117,56 +121,6 @@ namespace Silverlight.Html
         public static ArrayBuffer FromArray<T>(T[] array) where T : struct {
             var view = ArrayBufferView.FromArray(array);
             return view.buffer;
-        }
-    }
-
-    public static class TypeExtensionMethod
-    {
-        public static int SizeOf(this Type type) {
-            switch (Type.GetTypeCode(type)) {
-            case TypeCode.Boolean:  return 1;
-            case TypeCode.Byte:     return 1;
-            case TypeCode.Char:     return 2;
-            case TypeCode.Decimal:  return 16;
-            case TypeCode.Double:   return 8;
-            case TypeCode.Int16:    return 2;
-            case TypeCode.Int32:    return 4;
-            case TypeCode.Int64:    return 8;
-            case TypeCode.Single:   return 4;
-            case TypeCode.UInt16:   return 2;
-            case TypeCode.UInt32:   return 4;
-            case TypeCode.UInt64:   return 8;
-            case TypeCode.Object:
-                return type.GetFields().Sum(x => x.FieldType.SizeOf());
-            }
-            return 0;
-        }
-
-        public static void WriteTo(this Type type, BinaryWriter bw, object v) {
-            switch (Type.GetTypeCode(type)) {
-            case TypeCode.Boolean: bw.Write((bool)v); break;
-            case TypeCode.Byte: bw.Write((byte)v); break;
-            case TypeCode.Char: bw.Write((char)v); break;
-            case TypeCode.Decimal: // BinaryWriter.Write(Decimal) not supported in Silverlight
-                foreach (var i in Decimal.GetBits((decimal)v)) {
-                    bw.Write(i);
-                }
-                break;
-            case TypeCode.Double: bw.Write((double)v); break;
-            case TypeCode.Int16: bw.Write((Int16)v); break;
-            case TypeCode.Int32: bw.Write((Int32)v); break;
-            case TypeCode.Int64: bw.Write((Int64)v); break;
-            case TypeCode.Single: bw.Write((Single)v); break;
-            case TypeCode.UInt16: bw.Write((UInt16)v); break;
-            case TypeCode.UInt32: bw.Write((UInt32)v); break;
-            case TypeCode.UInt64: bw.Write((UInt64)v); break;
-            case TypeCode.Object:
-                foreach (var field in type.GetFields()) {
-                    var fv = field.GetValue(v);
-                    field.GetType().WriteTo(bw, fv);
-                }
-                break;
-            }
         }
     }
 }
