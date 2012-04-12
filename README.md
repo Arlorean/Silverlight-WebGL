@@ -91,4 +91,3 @@ TODO:
 * Fill in missing implementations of WebGL methods.
 * Port the remaining samples from [Learning WebGL](http://learningwebgl.com/blog/?page_id=1217).
 * Test on Mac OSX in Safari, Chrome and Firefox and add browser matrix to this README.md file.
-* Test via a http:// URL instead of just local file:// URLs.
